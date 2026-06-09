@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Quentin EMORINE — Génie Civil | Travaux Publics</title>
+<meta name="description" content="Portfolio de Quentin EMORINE — 3ème année BUT Génie Civil & Construction Durable, IUT de Nîmes. Alternance BUESA TP. Podium Challenge GC.">
+<meta property="og:title" content="Quentin EMORINE — Génie Civil | Travaux Publics">
+<meta property="og:description" content="3ème année BUT GC&CD TP · IUT de Nîmes · Alternance BUESA TP · Podium Challenge GC inter-IUT">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://iridescent-malabi-efd029.netlify.app">
+<meta property="og:image" content="https://iridescent-malabi-efd029.netlify.app/og-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quentin EMORINE — Génie Civil | TP">
+<meta name="twitter:description" content="Portfolio BUT GC&CD · IUT de Nîmes · BUESA TP · Podium Challenge GC">
+<meta name="theme-color" content="#05040a">
+<style>
+/* ═══════════════════════════════════════════
+   ROOT & RESET
+═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#05040a;
+  --ink2:#09080f;
+  --paper:#f0ece4;
+  --amber:#e8941a;
+  --amber2:#ffb347;
+  --gold:#d4a017;
+  --blue:#1a3cff;
+  --teal:#0fb8a0;
+  --white:#fff;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ease2:cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:#fff;font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;cursor:none}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:6000;opacity:.6}
+::selection{background:var(--amber);color:#000}
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-thumb{background:var(--amber)}
+a{text-decoration:none;cursor:none}
+
+/* SCROLL PROGRESS */
+#progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--amber),var(--amber2),var(--amber));z-index:9999;width:0%;transform-origin:left;transition:width .1s linear}
+
+/* PAGE GLOW — mouse spotlight */
+#glow-cursor{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(232,148,26,.04),transparent 70%);transition:background .15s}
+
+/* ═══════════════════════════════════════════
+   LOADER
+═══════════════════════════════════════════ */
+#loader{
+  position:fixed;inset:0;z-index:9000;background:var(--ink);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  gap:2rem;transition:opacity .7s var(--ease),visibility .7s;
+}
+#loader.out{opacity:0;visibility:hidden;pointer-events:none}
+.ld-title{font-size:clamp(3.5rem,9vw,8rem);font-weight:900;letter-spacing:-.05em;overflow:hidden}
+.ld-title span{display:inline-block;transform:translateY(110%);animation:liftup .8s var(--ease) forwards}
+.ld-title span:nth-child(2){animation-delay:.08s}
+.ld-title span:nth-child(3){animation-delay:.16s}
+.ld-title span:nth-child(4){animation-delay:.22s}
+.ld-title span:nth-child(5){animation-delay:.28s}
+.ld-title span:nth-child(6){animation-delay:.34s}
+.ld-title span:nth-child(7){animation-delay:.4s}
+@keyframes liftup{to{transform:translateY(0)}}
+.ld-sub{font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.25);overflow:hidden}
+.ld-sub span{display:inline-block;transform:translateY(100%);animation:liftup .6s var(--ease) .5s forwards}
+.ld-bar{width:240px;height:1px;background:rgba(255,255,255,.08)}
+.ld-fill{height:1px;background:linear-gradient(90deg,transparent,var(--amber),transparent);width:0;animation:ldfill 1.6s var(--ease) .3s forwards}
+@keyframes ldfill{to{width:100%}}
+
+/* ═══════════════════════════════════════════
+   CURSOR
+═══════════════════════════════════════════ */
+#cdot{position:fixed;width:7px;height:7px;border-radius:50%;background:var(--amber);pointer-events:none;z-index:8000;transform:translate(-50%,-50%);transition:transform .15s,width .2s,height .2s}
+#cring{position:fixed;width:34px;height:34px;border-radius:50%;border:1px solid rgba(232,148,26,.35);pointer-events:none;z-index:7999;transform:translate(-50%,-50%);transition:width .4s var(--ease),height .4s var(--ease),border-color .3s}
+body.ch #cring{width:56px;height:56px;border-color:var(--amber)}
+body.ch #cdot{width:9px;height:9px}
+body.cc #cdot{transform:translate(-50%,-50%) scale(.4)}
+
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:400;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;pointer-events:none;background:rgba(5,4,10,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06);transition:background .4s,padding .4s}
+nav.scrolled{background:rgba(5,4,10,.96);padding:1rem 3rem}
+nav>*{pointer-events:all}
+.nlogo{font-size:.76rem;font-weight:900;letter-spacing:.28em;text-transform:uppercase;color:#fff}
+.nlinks{display:flex;gap:2rem;list-style:none}
+.nlinks a{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);transition:color .25s;position:relative;padding-bottom:2px}
+.nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--amber);transition:width .3s var(--ease)}
+.nlinks a:hover,.nlinks a.active{color:#fff}
+.nlinks a.active::after{width:100%}
+
+/* ═══════════════════════════════════════════
+   HERO SPLIT
+═══════════════════════════════════════════ */
+#hero{height:100vh;display:grid;grid-template-columns:55fr 45fr;position:relative;overflow:hidden}
+
+.hl{
+  background:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;
+  padding:4.5rem 3.5rem 4rem;position:relative;z-index:2;overflow:hidden;
+}
+.hl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 90%,rgba(232,148,26,.06),transparent);pointer-events:none}
+.hl::after{content:'';position:absolute;top:-120px;right:-80px;width:350px;height:350px;background:radial-gradient(circle,rgba(232,148,26,.04),transparent 70%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.15);opacity:1}}
+.he{font-size:.63rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:.7rem;margin-bottom:1.8rem}
+.he::before{content:'';width:24px;height:1px;background:var(--amber)}
+.htitle{font-size:clamp(4rem,7.5vw,8.5rem);font-weight:900;line-height:.87;letter-spacing:-.048em;margin-bottom:2rem}
+.htitle .clip{overflow:hidden;display:block}
+.htitle .w{display:block;transform:translateY(108%);opacity:0;transition:transform 1s var(--ease),opacity .3s}
+.htitle .w.up{transform:none;opacity:1}
+.hdesc{font-size:.9rem;color:rgba(255,255,255,.42);max-width:320px;line-height:1.9;margin-bottom:2.5rem;opacity:0;transform:translateY(14px);transition:opacity .8s .65s,transform .8s .65s}
+.hdesc.up{opacity:1;transform:none}
+.hcta{display:flex;gap:.9rem;align-items:center;opacity:0;transition:opacity .6s 1.1s}
+.hcta.up{opacity:1}
+.hbtn{display:inline-flex;align-items:center;gap:.55rem;padding:.75rem 1.7rem;border-radius:2px;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;transition:transform .3s var(--ease)}
+.hbtn:hover{transform:translateY(-3px)}
+.hbtn.prim{background:var(--amber);color:#000}
+.hbtn.prim:hover{box-shadow:0 16px 40px rgba(232,148,26,.35)}
+.hbtn.ghost{color:#fff;border:1px solid rgba(255,255,255,.18)}
+
+.hr{background:var(--paper);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hr::before{content:'';position:absolute;left:0;top:0;bottom:0;width:65px;background:var(--ink);clip-path:polygon(0 0,100% 0,28% 100%,0 100%);z-index:3}
+.hr-year{position:absolute;top:2rem;right:1.5rem;font-size:6.5rem;font-weight:900;color:rgba(5,4,10,.05);letter-spacing:-.06em;line-height:1;user-select:none}
+.hr-label{position:absolute;bottom:2.5rem;left:5rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(5,4,10,.38);font-weight:700}
+
+/* Trophy badge sur le hero right */
+.trophy-badge{
+  position:absolute;top:2.5rem;right:2rem;
+  background:linear-gradient(135deg,#2a1e04,#4a3508);
+  border:1px solid rgba(212,160,23,.4);
+  border-radius:8px;padding:.8rem 1rem;
+  text-align:center;
+  box-shadow:0 8px 30px rgba(212,160,23,.15);
+}
+.trophy-icon{font-size:1.4rem;line-height:1;margin-bottom:.3rem}
+.trophy-label{font-size:.58rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block}
+.trophy-sub{font-size:.55rem;color:rgba(212,160,23,.6);letter-spacing:.06em;margin-top:.15rem}
+
+/* Bridge SVG */
+.bridge{width:300px;height:300px;animation:float 7s ease-in-out infinite;filter:drop-shadow(0 20px 35px rgba(232,148,26,.12))}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-.5deg)}50%{transform:translateY(-18px) rotate(.5deg)}}
+
+/* ═══════════════════════════════════════════
+   STATS STRIP
+═══════════════════════════════════════════ */
+.stats-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:#0a0912;
+}
+.stat-cell{
+  padding:2rem 2.5rem;border-right:1px solid rgba(255,255,255,.05);
+  position:relative;overflow:hidden;
+  transition:background .3s;cursor:none;
+}
+.stat-cell:last-child{border:none}
+.stat-cell:hover{background:rgba(232,148,26,.04)}
+.stat-n{
+  font-size:2.8rem;font-weight:900;letter-spacing:-.04em;line-height:1;
+  background:linear-gradient(135deg,var(--amber),var(--amber2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.stat-l{font-size:.68rem;color:rgba(255,255,255,.32);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;font-weight:700}
+
+/* TICKER */
+.ticker{overflow:hidden;border-bottom:1px solid rgba(255,255,255,.05);padding:.75rem 0;background:var(--ink2)}
+.ticker-t{display:flex;gap:2.5rem;width:max-content;animation:tick 20s linear infinite}
+.ticker-t span{font-size:.63rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.2);white-space:nowrap}
+.ticker-t .sep{color:var(--amber);opacity:.6}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ═══════════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════════ */
+.sec{padding:8rem 0;position:relative}
+.wrap{max-width:1180px;margin:0 auto;padding:0 3rem}
+.ey{font-size:.63rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:.65rem;margin-bottom:.75rem}
+.ey::after{content:'';height:1px;width:32px;background:var(--amber)}
+h2.big{font-size:clamp(2.4rem,5vw,5rem);font-weight:900;line-height:.93;letter-spacing:-.045em;margin-bottom:4rem}
+h2.big .out{-webkit-text-stroke:1.5px var(--amber);color:transparent}
+
+/* REVEAL */
+.fu{opacity:0;transform:translateY(44px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.fu.in{opacity:1;transform:none}
+.fl{opacity:0;transform:translateX(-44px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.fl.in{opacity:1;transform:none}
+.fr{opacity:0;transform:translateX(44px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.fr.in{opacity:1;transform:none}
+[data-d="1"]{transition-delay:.1s}[data-d="2"]{transition-delay:.2s}
+[data-d="3"]{transition-delay:.3s}[data-d="4"]{transition-delay:.4s}
+[data-d="5"]{transition-delay:.5s}[data-d="6"]{transition-delay:.6s}
+
+/* ═══════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════ */
+#about{background:#09080f}
+.about-g{display:grid;grid-template-columns:1fr 1.35fr;gap:5rem;align-items:center}
+.acard{aspect-ratio:.72;background:var(--ink);border:1px solid rgba(255,255,255,.07);border-radius:6px;position:relative;overflow:hidden}
+.acard-bg{position:absolute;inset:0;background:linear-gradient(155deg,rgba(232,148,26,.06),transparent 55%,rgba(26,60,255,.04))}
+.acard-init{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9rem;font-weight:900;letter-spacing:-.06em;color:rgba(255,255,255,.025);user-select:none}
+.acard-pill{position:absolute;bottom:2rem;left:2rem;background:var(--amber);color:#000;font-size:.7rem;font-weight:800;letter-spacing:.08em;padding:.45rem 1rem;border-radius:100px;text-transform:uppercase}
+.acard-stat{position:absolute;top:2rem;right:2rem;background:rgba(255,255,255,.04);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:.9rem 1rem;text-align:center}
+.acard-stat-n{font-size:2.2rem;font-weight:900;color:var(--amber);line-height:1}
+.acard-stat-l{font-size:.6rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+.about-b p{font-size:.94rem;color:rgba(255,255,255,.48);line-height:1.9;margin-bottom:.9rem}
+.about-b p strong{color:#fff}
+.atags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.5rem}
+.atag{font-size:.67rem;font-weight:700;letter-spacing:.06em;padding:.28rem .75rem;border-radius:2px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.45);transition:all .2s;cursor:none}
+.atag:hover{background:rgba(232,148,26,.1);border-color:rgba(232,148,26,.3);color:var(--amber)}
+
+/* ═══════════════════════════════════════════
+   PARCOURS
+═══════════════════════════════════════════ */
+.tl{position:relative}
+.tl::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--amber),rgba(232,148,26,.05))}
+.tlrow{display:grid;grid-template-columns:130px 1fr;gap:2rem;padding:2.5rem 0 2.5rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.04);position:relative;transition:background .3s}
+.tlrow:hover{background:rgba(232,148,26,.02)}
+.tlrow:hover::before{background:var(--amber2);box-shadow:0 0 0 3px var(--ink),0 0 0 5px rgba(232,148,26,.4),0 0 18px rgba(232,148,26,.3)}
+.tlrow:last-child{border:none}
+.tlrow::before{content:'';position:absolute;left:-4px;top:3rem;width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px var(--ink),0 0 0 5px rgba(232,148,26,.22)}
+.tlyr{font-size:.74rem;font-weight:800;color:var(--amber);letter-spacing:.05em;padding-top:.25rem}
+.tlorg{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.3rem}
+.tlname{font-size:1.05rem;font-weight:800;margin-bottom:.55rem;letter-spacing:-.01em}
+.tltxt{font-size:.87rem;color:rgba(255,255,255,.42);line-height:1.8;margin-bottom:.85rem}
+.tlpills{display:flex;flex-wrap:wrap;gap:.35rem}
+.pill{font-size:.63rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:2px}
+.pa{background:rgba(232,148,26,.1);border:1px solid rgba(232,148,26,.2);color:var(--amber)}
+.pb{background:rgba(26,60,255,.1);border:1px solid rgba(26,60,255,.25);color:#6b93ff}
+
+/* ═══════════════════════════════════════════
+   SKILLS GRID
+═══════════════════════════════════════════ */
+.skg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.05)}
+.skc{background:#09080f;padding:2rem 1.8rem;position:relative;overflow:hidden;transition:background .3s;cursor:none}
+.skc:hover{background:#0e0d1a}
+.skc::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(232,148,26,.06),transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none}
+.skc:hover::after{opacity:1}
+.sknum{font-size:3.5rem;font-weight:900;color:rgba(255,255,255,.04);letter-spacing:-.06em;line-height:1;margin-bottom:.5rem;user-select:none}
+.skie{font-size:1.4rem;margin-bottom:1rem}
+.skname{font-size:.87rem;font-weight:800;margin-bottom:.85rem;letter-spacing:-.01em}
+.skitems{display:flex;flex-direction:column;gap:.6rem}
+.skit-top{display:flex;justify-content:space-between;font-size:.73rem;margin-bottom:.25rem}
+.skit-name{color:rgba(255,255,255,.38)}
+.skit-pct{color:var(--amber);font-weight:700}
+.sk-track{height:2px;background:rgba(255,255,255,.07);border-radius:1px;overflow:hidden}
+.sk-bar{width:0;height:100%;border-radius:1px;transition:width 1.5s var(--ease)}
+.ba{background:linear-gradient(90deg,rgba(232,148,26,.35),var(--amber))}
+.bb{background:linear-gradient(90deg,rgba(107,147,255,.35),#6b93ff)}
+.bc{background:linear-gradient(90deg,rgba(15,184,160,.35),var(--teal))}
+
+/* ═══════════════════════════════════════════
+   TROPHÉE / CHALLENGE
+═══════════════════════════════════════════ */
+#challenge{background:#0a0912}
+.challenge-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+  background:linear-gradient(135deg,rgba(212,160,23,.06),rgba(232,148,26,.03),transparent);
+  border:1px solid rgba(212,160,23,.15);border-radius:8px;padding:4rem;
+  position:relative;overflow:hidden;
+}
+.challenge-inner::before{
+  content:'🏆';position:absolute;right:-1rem;bottom:-2rem;
+  font-size:14rem;opacity:.04;user-select:none;
+  transform:rotate(-15deg);
+}
+.ch-badge{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:linear-gradient(135deg,#3a2800,#5c3e00);
+  border:1px solid rgba(212,160,23,.3);border-radius:4px;
+  padding:.45rem 1rem;margin-bottom:1.5rem;
+}
+.ch-badge-icon{font-size:.9rem}
+.ch-badge-txt{font-size:.65rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.ch-title{font-size:clamp(1.8rem,3.5vw,3.2rem);font-weight:900;line-height:1;letter-spacing:-.04em;margin-bottom:1rem}
+.ch-title .gold{
+  background:linear-gradient(90deg,#c87d00,var(--gold),var(--amber2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.ch-desc{font-size:.9rem;color:rgba(255,255,255,.45);line-height:1.85}
+.ch-podium{display:flex;flex-direction:column;gap:1rem}
+.ch-stat-big{
+  background:rgba(212,160,23,.06);border:1px solid rgba(212,160,23,.15);
+  border-radius:6px;padding:1.5rem;text-align:center;
+}
+.ch-stat-big .n{
+  font-size:5rem;font-weight:900;line-height:1;letter-spacing:-.05em;
+  background:linear-gradient(135deg,#c87d00,var(--gold),var(--amber2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.ch-stat-big .l{font-size:.7rem;color:rgba(212,160,23,.6);letter-spacing:.15em;text-transform:uppercase;font-weight:700;margin-top:.4rem}
+.ch-sub-stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.ch-sub{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:1rem;text-align:center}
+.ch-sub .n{font-size:1.6rem;font-weight:900;color:#fff}
+.ch-sub .l{font-size:.62rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+
+/* ═══════════════════════════════════════════
+   ALTERNANCE
+═══════════════════════════════════════════ */
+.alt-g{display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:start}
+.alt-co{background:#09080f;border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:2.5rem;position:relative;overflow:hidden}
+.alt-co::before{content:'';position:absolute;top:-50px;right:-50px;width:150px;height:150px;background:radial-gradient(circle,rgba(232,148,26,.07),transparent 70%)}
+.alt-ico{width:52px;height:52px;border-radius:6px;background:linear-gradient(135deg,#a05010,var(--amber));display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.5rem}
+.alt-name{font-size:1.4rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.15rem}
+.alt-sub{font-size:.76rem;color:rgba(255,255,255,.3);margin-bottom:2rem;letter-spacing:.04em}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.kpi{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:4px;padding:.9rem 1rem}
+.kpi-v{font-size:1.7rem;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--amber),var(--amber2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.kpi-l{font-size:.6rem;color:rgba(255,255,255,.28);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+
+/* Chantiers */
+.chantiers-list{display:flex;flex-direction:column;gap:1rem}
+.chantier-card{
+  background:#09080f;border:1px solid rgba(255,255,255,.06);
+  border-radius:6px;padding:1.4rem;
+  transition:border-color .25s,transform .25s;cursor:none;
+}
+.chantier-card:hover{border-color:rgba(232,148,26,.2);transform:translateX(5px)}
+.ch-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.7rem;gap:.5rem}
+.ch-card-name{font-size:.95rem;font-weight:800;letter-spacing:-.01em}
+.ch-card-badge{font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:2px;background:rgba(232,148,26,.1);border:1px solid rgba(232,148,26,.2);color:var(--amber);white-space:nowrap;flex-shrink:0}
+.ch-card-client{font-size:.72rem;color:rgba(255,255,255,.3);margin-bottom:.5rem;font-weight:600}
+.ch-card-desc{font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.7}
+.missions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06)}
+.mbox{background:var(--ink);padding:1.5rem;transition:background .25s}
+.mbox:hover{background:rgba(232,148,26,.05)}
+.mbox-n{font-size:.62rem;font-weight:900;letter-spacing:.12em;color:var(--amber);margin-bottom:.8rem;opacity:.7}
+.mbox-t{font-size:.88rem;font-weight:800;margin-bottom:.6rem;letter-spacing:-.01em}
+.mbox-d{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.7}
+@media(max-width:900px){.missions-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.missions-grid{grid-template-columns:1fr}}
+.ch-card-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
+.ch-tag{font-size:.62rem;font-weight:700;letter-spacing:.06em;padding:.18rem .5rem;border-radius:2px;background:rgba(107,147,255,.08);border:1px solid rgba(107,147,255,.18);color:#7fa2ff}
+
+/* ═══════════════════════════════════════════
+   PROJETS
+═══════════════════════════════════════════ */
+/* Featured project (Anduze) */
+.proj-featured{
+  border:1px solid rgba(255,255,255,.07);border-radius:8px;overflow:hidden;
+  background:#09080f;margin-bottom:1.5rem;
+  display:grid;grid-template-columns:1fr 1.2fr;
+  min-height:340px;
+  transition:border-color .3s;cursor:none;
+}
+.proj-featured:hover{border-color:rgba(232,148,26,.2);box-shadow:0 30px 70px -10px rgba(0,0,0,.5)}
+.pf-left{padding:3rem;display:flex;flex-direction:column;justify-content:space-between}
+.pf-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(232,148,26,.1);border:1px solid rgba(232,148,26,.2);border-radius:2px;padding:.3rem .75rem;font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);margin-bottom:1.5rem;width:fit-content}
+.pf-title{font-size:clamp(1.5rem,3vw,2.8rem);font-weight:900;letter-spacing:-.04em;line-height:.95;margin-bottom:1rem}
+.pf-desc{font-size:.88rem;color:rgba(255,255,255,.42);line-height:1.85;margin-bottom:1.5rem}
+.pf-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.pf-tag{font-size:.63rem;font-weight:700;letter-spacing:.06em;padding:.2rem .55rem;border-radius:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.45)}
+.pf-right{
+  position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 60%,rgba(232,148,26,.08),rgba(26,60,255,.04) 50%,transparent);
+  display:flex;align-items:center;justify-content:center;
+}
+.pf-visual{font-size:8rem;filter:drop-shadow(0 10px 30px rgba(232,148,26,.15));animation:float 6s ease-in-out infinite}
+.pf-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#09080f 0%,transparent 20%)}
+
+/* Grid projects */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.pc{border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.06);background:#09080f;transform-style:preserve-3d;will-change:transform;transition:border-color .3s,box-shadow .3s;cursor:none}
+.pc:hover{border-color:rgba(232,148,26,.15);box-shadow:0 30px 60px -10px rgba(0,0,0,.5)}
+.pc-ban{height:150px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden}
+.pc-ban::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,#09080f)}
+.b1{background:radial-gradient(ellipse at 50% 80%,#1e1002,#080602)}
+.b2{background:radial-gradient(ellipse at 50% 80%,#02051e,#020306)}
+.b3{background:radial-gradient(ellipse at 50% 80%,#02150e,#020606)}
+.pc-body{padding:1.5rem}
+.pc-type{font-size:.6rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:.4rem}
+.pc-title{font-size:.96rem;font-weight:800;margin-bottom:.45rem;letter-spacing:-.01em}
+.pc-desc{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.75;margin-bottom:.9rem}
+.pc-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.pc-tag{font-size:.6rem;font-weight:700;letter-spacing:.06em;padding:.18rem .5rem;border-radius:2px;background:rgba(26,60,255,.08);border:1px solid rgba(26,60,255,.2);color:#7fa2ff}
+
+/* ═══════════════════════════════════════════
+   SOFT SKILLS
+═══════════════════════════════════════════ */
+.softg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.04)}
+.softc{background:var(--ink);padding:2.5rem 2rem;transition:background .3s;cursor:none}
+.softc:hover{background:#0a0912}
+.softn{font-size:3.5rem;font-weight:900;letter-spacing:-.05em;color:rgba(255,255,255,.04);line-height:1;margin-bottom:.75rem}
+.softt{font-size:.93rem;font-weight:800;margin-bottom:.4rem}
+.softd{font-size:.82rem;color:rgba(255,255,255,.33);line-height:1.7}
+
+/* ═══════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════ */
+#contact{min-height:70vh;display:flex;align-items:center;background:var(--ink);position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(232,148,26,.09),transparent 60%)}
+#contact::after{content:'CONTACT';position:absolute;bottom:-3rem;left:50%;transform:translateX(-50%);font-size:clamp(6rem,18vw,20rem);font-weight:900;letter-spacing:-.06em;color:rgba(255,255,255,.02);white-space:nowrap;pointer-events:none;user-select:none}
+.con-wrap{width:100%;text-align:center;padding:7rem 3rem;position:relative;z-index:2}
+.con-big{font-size:clamp(3.5rem,8vw,10rem);font-weight:900;line-height:.85;letter-spacing:-.055em;margin-bottom:2rem}
+.con-big .ghost{-webkit-text-stroke:1.5px rgba(255,255,255,.1);color:transparent}
+.con-sub{font-size:.92rem;color:rgba(255,255,255,.32);margin-bottom:3rem;letter-spacing:.04em}
+.con-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.cbtn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2.2rem;border-radius:2px;font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;transition:transform .35s var(--ease),box-shadow .35s;position:relative;overflow:hidden;cursor:none}
+.cbtn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.07);transform:translateX(-100%);transition:transform .4s var(--ease)}
+.cbtn:hover::before{transform:none}
+.cbtn:hover{transform:translateY(-3px)}
+.cbtn.amber{background:var(--amber);color:#000}
+.cbtn.amber:hover{box-shadow:0 16px 40px rgba(232,148,26,.35)}
+.cbtn.ghost{color:#fff;border:1px solid rgba(255,255,255,.15)}
+.cbtn.ghost:hover{border-color:rgba(232,148,26,.35)}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer{display:flex;justify-content:space-between;align-items:center;padding:2rem 3rem;border-top:1px solid rgba(255,255,255,.05);font-size:.7rem;color:rgba(255,255,255,.2);position:relative;z-index:2}
+footer b{color:rgba(255,255,255,.5)}
+footer .amber{color:var(--amber)}
+
+/* ═══════════════════════════════════════════
+   BOUTON CV FLOTTANT
+═══════════════════════════════════════════ */
+#cv-btn{
+  position:fixed;bottom:2rem;right:2rem;z-index:500;
+  background:var(--amber);color:#000;
+  padding:.7rem 1.5rem;border-radius:100px;border:none;cursor:none;
+  font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+  display:flex;align-items:center;gap:.5rem;
+  box-shadow:0 8px 30px rgba(232,148,26,.4);
+  transition:transform .35s var(--ease),box-shadow .35s;
+  animation:floatbtn 3.5s ease-in-out infinite;
+}
+#cv-btn:hover{box-shadow:0 18px 50px rgba(232,148,26,.55)}
+@keyframes floatbtn{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+#cv-btn svg{width:14px;height:14px;flex-shrink:0}
+
+/* ═══════════════════════════════════════════
+   THEME TOGGLE
+═══════════════════════════════════════════ */
+#theme-btn{
+  background:none;border:1px solid rgba(255,255,255,.14);
+  color:rgba(255,255,255,.45);padding:.38rem .85rem;
+  border-radius:100px;font-size:.65rem;font-weight:700;
+  letter-spacing:.08em;cursor:none;transition:all .25s;
+  display:flex;align-items:center;gap:.4rem;
+}
+#theme-btn:hover{border-color:var(--amber);color:var(--amber)}
+
+/* ═══════════════════════════════════════════
+   LIGHT MODE
+═══════════════════════════════════════════ */
+body.light{background:#f0ece4;color:#12101e}
+body.light nav{background:rgba(240,236,228,.92);border-bottom-color:rgba(0,0,0,.07)}
+body.light .nlogo{color:#12101e}
+body.light .nlinks a{color:rgba(18,16,30,.45)}
+body.light .nlinks a:hover,body.light .nlinks a.active{color:#12101e}
+body.light #theme-btn{border-color:rgba(0,0,0,.15);color:rgba(18,16,30,.5)}
+body.light #about,body.light #skills,body.light #challenge,body.light #alt,body.light #projets,body.light #soft{background:#e8e4dc}
+body.light #parcours{background:#f0ece4}
+body.light .skc,body.light .softc{background:#f7f4ef}
+body.light .skc:hover,body.light .softc:hover{background:#f0ece4}
+body.light .stats-strip{background:#e0dbd0}
+body.light .stat-cell:hover{background:rgba(232,148,26,.06)}
+body.light .acard,body.light .alt-co,body.light .chantier-card,body.light .pc,body.light .proj-featured,body.light .mbox,body.light .kpi,body.light .ch-sub{background:#fff;border-color:rgba(0,0,0,.07)}
+body.light .ticker{background:#12101e}
+body.light #contact{background:#12101e;color:#fff}
+body.light footer{border-top-color:rgba(0,0,0,.1);color:rgba(18,16,30,.4)}
+body.light footer b{color:rgba(18,16,30,.6)}
+body.light .hl{background:#12101e}
+body.light .tl::before{background:linear-gradient(to bottom,var(--amber),rgba(232,148,26,.05))}
+body.light .tlrow{border-bottom-color:rgba(0,0,0,.07)}
+body.light .challenge-inner{background:linear-gradient(135deg,rgba(212,160,23,.08),transparent)}
+body.light .skg,body.light .softg,body.light .missions-grid{background:rgba(0,0,0,.06)}
+body.light .about-b p{color:rgba(18,16,30,.55)}
+body.light .about-b p strong{color:#12101e}
+body.light #cv-btn{box-shadow:0 8px 30px rgba(232,148,26,.5)}
+
+/* ═══════════════════════════════════════════
+   CURSOR LABEL (VOIR →)
+═══════════════════════════════════════════ */
+#cursor-lbl{
+  position:fixed;pointer-events:none;z-index:7998;
+  font-size:.58rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--amber);white-space:nowrap;
+  opacity:0;transition:opacity .25s;
+  transform:translate(-50%,-50%);
+  margin-top:28px;
+}
+
+/* ═══════════════════════════════════════════
+   EASTER EGG
+═══════════════════════════════════════════ */
+#easter{
+  position:fixed;inset:0;z-index:9500;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  background:rgba(5,4,10,.97);backdrop-filter:blur(24px);
+  opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s;
+  cursor:none;
+}
+#easter.show{opacity:1;visibility:visible}
+.easter-main{text-align:center;padding:2rem}
+.easter-icon{font-size:5rem;animation:crane 1.5s ease-in-out infinite;display:block;margin-bottom:1rem}
+@keyframes crane{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+.easter-title{font-size:clamp(4rem,12vw,10rem);font-weight:900;letter-spacing:-.06em;line-height:.9;background:linear-gradient(135deg,var(--amber),var(--amber2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.easter-sub{font-size:.9rem;color:rgba(255,255,255,.4);margin-top:1.5rem;letter-spacing:.25em;text-transform:uppercase}
+.easter-close{margin-top:2.5rem;font-size:.68rem;color:rgba(255,255,255,.2);letter-spacing:.2em;text-transform:uppercase;animation:blink 1.5s step-end infinite}
+@keyframes blink{0%,100%{opacity:.2}50%{opacity:.6}}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media(max-width:1000px){
+  #hero{grid-template-columns:1fr;height:auto;padding-top:7rem}
+  .hr{display:none}
+  .about-g,.alt-g,.proj-featured{grid-template-columns:1fr}
+  .pf-right{min-height:200px}
+  .skg,.softg{grid-template-columns:1fr 1fr}
+  .stats-strip{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr 1fr}
+  nav{padding:1.2rem 1.5rem}
+  .wrap{padding:0 1.5rem}
+  .challenge-inner{grid-template-columns:1fr;padding:2.5rem}
+}
+@media(max-width:600px){
+  .skg,.softg,.proj-grid{grid-template-columns:1fr}
+  .stats-strip{grid-template-columns:1fr 1fr}
+  .htitle{font-size:3.5rem}
+  .sec{padding:5rem 0}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-title">
+    <span>Q</span><span>U</span><span>E</span><span>N</span><span>T</span><span>I</span><span>N</span>
+  </div>
+  <div class="ld-sub"><span>Génie Civil · Travaux Publics · IUT de Nîmes · Promo 2026</span></div>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="progress"></div>
+
+<!-- PAGE GLOW -->
+<div id="glow-cursor"></div>
+
+<!-- CURSOR -->
+<div id="cdot"></div>
+<div id="cring"></div>
+<div id="cursor-lbl"></div>
+
+<!-- BOUTON CV FLOTTANT -->
+<a id="cv-btn" href="mailto:quentin.emorine0510@gmail.com?subject=CV - Quentin EMORINE" title="Demander mon CV">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12V4h6l2 2v6H4z"/><path d="M10 4v3h2"/><path d="M6 9h4M6 11h2"/></svg>
+  CV
+</a>
+
+<!-- EASTER EGG -->
+<div id="easter">
+  <div class="easter-main">
+    <span class="easter-icon">🏗️</span>
+    <div class="easter-title">BUESA TP</div>
+    <div class="easter-sub">Apprenti Chef de Chantier VRD · Promo 2026</div>
+    <div class="easter-close">Appuie sur Échap pour fermer</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nlogo">Q. Emorine</div>
+  <ul class="nlinks">
+    <li><a href="#about">Profil</a></li>
+    <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#challenge">🏆 Challenge</a></li>
+    <li><a href="#alt">Alternance</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button id="theme-btn" title="Changer le thème">☀️ Clair</button>
+</nav>
+
+<!-- ══════════ HERO ════════════════════════════ -->
+<section id="hero">
+  <div class="hl">
+    <div class="he">Alternant BUESA · IUT de Nîmes · BUT GC&CD · TP</div>
+    <h1 class="htitle">
+      <span class="clip"><span class="w">QUENTIN</span></span>
+      <span class="clip"><span class="w">EMORINE</span></span>
+    </h1>
+    <p class="hdesc">
+      3ème année BUT Génie Civil &amp; Construction Durable — Parcours Travaux Publics,
+      IUT de Nîmes. Stages chez Freyssinet &amp; Eurovia, alternance BUESA —
+      je construis avec méthode et ambition.
+    </p>
+    <div class="hcta">
+      <a href="#projets" class="hbtn prim">Voir mes projets</a>
+      <a href="#contact" class="hbtn ghost">Contact →</a>
+    </div>
+  </div>
+
+  <div class="hr">
+    <div class="hr-year">25</div>
+
+    <!-- Trophy badge -->
+    <div class="trophy-badge">
+      <div class="trophy-icon">🏆</div>
+      <span class="trophy-label">Podium</span>
+      <div class="trophy-sub">Challenge GC</div>
+    </div>
+
+    <!-- Bridge SVG -->
+    <svg class="bridge" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="ga" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#b06010"/>
+          <stop offset="100%" stop-color="#e8941a"/>
+        </linearGradient>
+        <linearGradient id="gb" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1e1830"/>
+          <stop offset="100%" stop-color="#12101e"/>
+        </linearGradient>
+        <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <ellipse cx="150" cy="278" rx="90" ry="8" fill="rgba(5,4,10,.1)"/>
+      <rect x="38" y="160" width="224" height="7" rx="1" fill="url(#gb)" stroke="rgba(232,148,26,.1)" stroke-width=".5"/>
+      <rect x="56" y="102" width="13" height="62" rx="1" fill="url(#gb)" stroke="rgba(232,148,26,.08)" stroke-width=".5"/>
+      <rect x="231" y="102" width="13" height="62" rx="1" fill="url(#gb)" stroke="rgba(232,148,26,.08)" stroke-width=".5"/>
+      <rect x="52" y="98" width="21" height="7" rx="1" fill="url(#ga)"/>
+      <rect x="227" y="98" width="21" height="7" rx="1" fill="url(#ga)"/>
+      <path d="M 63,104 Q 150,26 237,104" stroke="url(#ga)" stroke-width="3.5" fill="none" stroke-linecap="round" filter="url(#glow)"/>
+      <path d="M 63,108 Q 150,30 237,108" stroke="rgba(232,148,26,.18)" stroke-width="1" fill="none"/>
+      <line x1="150" y1="36" x2="92" y2="164" stroke="rgba(232,148,26,.22)" stroke-width=".8"/>
+      <line x1="150" y1="36" x2="112" y2="164" stroke="rgba(232,148,26,.22)" stroke-width=".8"/>
+      <line x1="150" y1="36" x2="132" y2="164" stroke="rgba(232,148,26,.22)" stroke-width=".8"/>
+      <line x1="150" y1="36" x2="150" y2="164" stroke="rgba(232,148,26,.28)" stroke-width="1"/>
+      <line x1="150" y1="36" x2="168" y2="164" stroke="rgba(232,148,26,.22)" stroke-width=".8"/>
+      <line x1="150" y1="36" x2="188" y2="164" stroke="rgba(232,148,26,.22)" stroke-width=".8"/>
+      <line x1="150" y1="36" x2="208" y2="164" stroke="rgba(232,148,26,.22)" stroke-width=".8"/>
+      <circle cx="150" cy="36" r="6" fill="var(--amber,#e8941a)" filter="url(#glow)"/>
+      <circle cx="150" cy="36" r="12" fill="rgba(232,148,26,.15)"/>
+      <rect x="30" y="165" width="34" height="9" rx="1" fill="url(#gb)" stroke="rgba(232,148,26,.07)" stroke-width=".5"/>
+      <rect x="236" y="165" width="34" height="9" rx="1" fill="url(#gb)" stroke="rgba(232,148,26,.07)" stroke-width=".5"/>
+    </svg>
+
+    <div class="hr-label">IUT de Nîmes · GC&CD · TP · Promo 2026</div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-cell fu"><div class="stat-n">3</div><div class="stat-l">Ans de formation BUT</div></div>
+  <div class="stat-cell fu" data-d="1"><div class="stat-n">🏆</div><div class="stat-l">Podium Challenge GC</div></div>
+  <div class="stat-cell fu" data-d="2"><div class="stat-n">3</div><div class="stat-l">Entreprises TP · Freyssinet · Eurovia · BUESA</div></div>
+  <div class="stat-cell fu" data-d="3"><div class="stat-n">1</div><div class="stat-l">An d'alternance BUESA</div></div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-t">
+    <span>IUT de Nîmes</span><span class="sep">✦</span><span>BUESA TP</span><span class="sep">✦</span><span>Freyssinet Chaponost</span><span class="sep">✦</span><span>Eurovia · VINCI</span><span class="sep">✦</span><span>Bonpas OA</span><span class="sep">✦</span><span>Total Énergies</span><span class="sep">✦</span><span>Anduze</span><span class="sep">✦</span><span>Challenge GC · Podium</span><span class="sep">✦</span><span>Port d'Istres VRD</span><span class="sep">✦</span><span>Terrassement</span><span class="sep">✦</span><span>Ouvrages d'art</span><span class="sep">✦</span><span>AutoCAD Civil 3D</span><span class="sep">✦</span><span>Béton Armé EC2</span><span class="sep">✦</span><span>Apprenti Chef de Chantier</span><span class="sep">✦</span>
+    <span>IUT de Nîmes</span><span class="sep">✦</span><span>BUESA TP</span><span class="sep">✦</span><span>Freyssinet Chaponost</span><span class="sep">✦</span><span>Eurovia · VINCI</span><span class="sep">✦</span><span>Bonpas OA</span><span class="sep">✦</span><span>Total Énergies</span><span class="sep">✦</span><span>Anduze</span><span class="sep">✦</span><span>Challenge GC · Podium</span><span class="sep">✦</span><span>Port d'Istres VRD</span><span class="sep">✦</span><span>Terrassement</span><span class="sep">✦</span><span>Ouvrages d'art</span><span class="sep">✦</span><span>AutoCAD Civil 3D</span><span class="sep">✦</span><span>Béton Armé EC2</span><span class="sep">✦</span><span>Apprenti Chef de Chantier</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<!-- ══════════ ABOUT ══════════════════════════ -->
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="about-g">
+      <div class="fl">
+        <div class="acard">
+          <div class="acard-bg"></div>
+          <div class="acard-init">QE</div>
+          <div class="acard-stat"><div class="acard-stat-n">3</div><div class="acard-stat-l">ans formation</div></div>
+          <div class="acard-pill">IUT de Nîmes · Promo 2026</div>
+        </div>
+      </div>
+      <div class="about-b">
+        <p class="ey fu">À propos</p>
+        <h2 class="big fu">Profil <span class="out">terrain</span><br/>&amp; technique</h2>
+        <p class="fu" data-d="1">Formé à l'<strong>IUT de Nîmes</strong> en Génie Civil &amp; Construction Durable, parcours Travaux Publics, j'ai forgé une double compétence en calcul de structures et gestion de chantier. Stages chez <strong>Freyssinet Chaponost</strong> (ouvrages spéciaux) puis <strong>Eurovia</strong> (routes &amp; VRD), et actuellement en alternance chez <strong>BUESA</strong>.</p>
+        <p class="fu" data-d="2">Sur le terrain, j'ai participé au terrassement d'un <strong>ouvrage d'art à Bonpas</strong> et à un <strong>chantier d'entretien pour Total Énergies</strong>. En parallèle, podium au <strong>Challenge Génie Civil inter-IUT</strong> et projet de fin d'études sur Anduze.</p>
+        <div class="atags fu" data-d="3">
+          <span class="atag">IUT de Nîmes</span><span class="atag">Permis B · Mobile</span>
+          <span class="atag">BUT GC&CD · TP</span><span class="atag">Freyssinet · Eurovia · BUESA</span>
+          <span class="atag">Eurocodes EC2 &amp; EC3</span><span class="atag">Alternant disponible</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PARCOURS ═══════════════════════ -->
+<section id="parcours" class="sec" style="background:#09080f">
+  <div class="wrap">
+    <p class="ey fu">Parcours</p>
+    <h2 class="big fu">Ma <span class="out">trajectoire</span></h2>
+    <div class="tl">
+
+      <div class="tlrow fu" data-d="1">
+        <div class="tlyr">2025–2026</div>
+        <div>
+          <div class="tlorg">IUT de Nîmes — Alternance BUESA</div>
+          <div class="tlname">3ème année BUT GC&amp;CD — Parcours Travaux Publics</div>
+          <div class="tltxt">Dimensionnement des chaussées, ouvrages hydrauliques, management de projet TP. Projet de fin d'études : réaménagement urbain de la ville d'Anduze. Alternance chez <strong>BUESA</strong> — chantiers Bonpas (OA) et L'Estac (Total Énergies).</div>
+          <div class="tlpills"><span class="pill pa">Chaussées</span><span class="pill pa">Hydraulique</span><span class="pill pb">AutoCAD Civil 3D</span><span class="pill pb">BUESA</span><span class="pill pb">Projet Anduze</span></div>
+        </div>
+      </div>
+
+      <div class="tlrow fu" data-d="2">
+        <div class="tlyr">2024–2025</div>
+        <div>
+          <div class="tlorg">IUT de Nîmes — Stage Eurovia · Challenge GC Podium</div>
+          <div class="tlname">2ème année BUT GC&amp;CD</div>
+          <div class="tltxt">Calcul béton armé &amp; charpente métallique, topographie, mécanique des sols, études géotechniques. Stage chez <strong>Eurovia</strong> (groupe VINCI). Participation au Challenge Génie Civil inter-IUT — <strong style="color:var(--gold)">classement sur le podium</strong>.</div>
+          <div class="tlpills"><span class="pill pa">Béton armé EC2</span><span class="pill pa">Méca des sols</span><span class="pill pb">Eurovia · VINCI</span><span class="pill pb">Revit</span><span class="pill pb">Robot Structural</span></div>
+        </div>
+      </div>
+
+      <div class="tlrow fu" data-d="3">
+        <div class="tlyr">2023–2024</div>
+        <div>
+          <div class="tlorg">IUT de Nîmes — Stage Freyssinet Chaponost</div>
+          <div class="tlname">1ère année BUT GC&amp;CD</div>
+          <div class="tltxt">Résistance des matériaux, dessin technique, topographie, droit de la construction, matériaux. Stage chez <strong>Freyssinet Chaponost</strong> — spécialiste mondial des ouvrages spéciaux et du béton précontraint.</div>
+          <div class="tlpills"><span class="pill pa">RdM</span><span class="pill pa">Dessin technique</span><span class="pill pb">Freyssinet</span><span class="pill pb">AutoCAD</span><span class="pill pb">Ouvrages spéciaux</span></div>
+        </div>
+      </div>
+
+      <div class="tlrow fu" data-d="4">
+        <div class="tlyr">2023</div>
+        <div>
+          <div class="tlorg">Lycée de l'Arc — Orange</div>
+          <div class="tlname">Baccalauréat Général — Spécialités Maths &amp; Sciences de l'Ingénieur</div>
+          <div class="tltxt">Baccalauréat général au Lycée de l'Arc d'Orange. Spécialités <strong>Mathématiques</strong> et <strong>Sciences de l'Ingénieur</strong>, enseignement de spécialité complémentaire <strong>Physique-Chimie</strong>. Bases analytiques et scientifiques solides pour le génie civil.</div>
+          <div class="tlpills"><span class="pill pa">Mathématiques</span><span class="pill pa">Sciences de l'Ingénieur</span><span class="pill pb">Physique-Chimie</span><span class="pill pb">Lycée de l'Arc · Orange</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SKILLS ════════════════════════ -->
+<section id="skills" class="sec" style="padding-top:0">
+  <div class="wrap" style="padding:0">
+    <div style="padding:0 3rem 3rem">
+      <p class="ey fu">Compétences</p>
+      <h2 class="big fu">Ce que je <span class="out">maîtrise</span></h2>
+    </div>
+    <div class="skg">
+      <div class="skc fu" data-d="1"><div class="sknum">01</div><div class="skie">🏗️</div><div class="skname">Géotechnique &amp; Terrassement</div><div class="skitems"><div><div class="skit-top"><span class="skit-name">Mécanique des sols</span><span class="skit-pct">80%</span></div><div class="sk-track"><div class="sk-bar ba" data-w="80"></div></div></div><div><div class="skit-top"><span class="skit-name">Études géotechniques</span><span class="skit-pct">72%</span></div><div class="sk-track"><div class="sk-bar ba" data-w="72"></div></div></div><div><div class="skit-top"><span class="skit-name">Dim. chaussées</span><span class="skit-pct">78%</span></div><div class="sk-track"><div class="sk-bar ba" data-w="78"></div></div></div></div></div>
+      <div class="skc fu" data-d="2"><div class="sknum">02</div><div class="skie">🖥️</div><div class="skname">Logiciels &amp; DAO</div><div class="skitems"><div><div class="skit-top"><span class="skit-name">AutoCAD / Civil 3D</span><span class="skit-pct">82%</span></div><div class="sk-track"><div class="sk-bar bb" data-w="82"></div></div></div><div><div class="skit-top"><span class="skit-name">Revit</span><span class="skit-pct">65%</span></div><div class="sk-track"><div class="sk-bar bb" data-w="65"></div></div></div><div><div class="skit-top"><span class="skit-name">Robot Structural</span><span class="skit-pct">60%</span></div><div class="sk-track"><div class="sk-bar bb" data-w="60"></div></div></div></div></div>
+      <div class="skc fu" data-d="3"><div class="sknum">03</div><div class="skie">💧</div><div class="skname">Hydraulique &amp; Assainissement</div><div class="skitems"><div><div class="skit-top"><span class="skit-name">Hydraulique surface libre</span><span class="skit-pct">75%</span></div><div class="sk-track"><div class="sk-bar bc" data-w="75"></div></div></div><div><div class="skit-top"><span class="skit-name">Réseau assainissement</span><span class="skit-pct">70%</span></div><div class="sk-track"><div class="sk-bar bc" data-w="70"></div></div></div><div><div class="skit-top"><span class="skit-name">Dimensionnement EP/EU</span><span class="skit-pct">68%</span></div><div class="sk-track"><div class="sk-bar bc" data-w="68"></div></div></div></div></div>
+      <div class="skc fu" data-d="1"><div class="sknum">04</div><div class="skie">🦺</div><div class="skname">Chantier &amp; Suivi</div><div class="skitems"><div><div class="skit-top"><span class="skit-name">Lecture plans exécution</span><span class="skit-pct">85%</span></div><div class="sk-track"><div class="sk-bar ba" data-w="85"></div></div></div><div><div class="skit-top"><span class="skit-name">Planning &amp; ordonnancement</span><span class="skit-pct">72%</span></div><div class="sk-track"><div class="sk-bar ba" data-w="72"></div></div></div><div><div class="skit-top"><span class="skit-name">Métré &amp; quantitatif</span><span class="skit-pct">78%</span></div><div class="sk-track"><div class="sk-bar ba" data-w="78"></div></div></div></div></div>
+      <div class="skc fu" data-d="2"><div class="sknum">05</div><div class="skie">📐</div><div class="skname">Structures &amp; Béton</div><div class="skitems"><div><div class="skit-top"><span class="skit-name">Béton armé (EC2)</span><span class="skit-pct">73%</span></div><div class="sk-track"><div class="sk-bar ba" data-w="73"></div></div></div><div><div class="skit-top"><span class="skit-name">Charpente métal (EC3)</span><span class="skit-pct">60%</span></div><div class="sk-track"><div class="sk-bar ba" data-w="60"></div></div></div><div><div class="skit-top"><span class="skit-name">Méca des structures</span><span class="skit-pct">76%</span></div><div class="sk-track"><div class="sk-bar ba" data-w="76"></div></div></div></div></div>
+      <div class="skc fu" data-d="3"><div class="sknum">06</div><div class="skie">🌍</div><div class="skname">Topographie &amp; SIG</div><div class="skitems"><div><div class="skit-top"><span class="skit-name">Topographie terrain</span><span class="skit-pct">77%</span></div><div class="sk-track"><div class="sk-bar bb" data-w="77"></div></div></div><div><div class="skit-top"><span class="skit-name">Nivellement / Implantation</span><span class="skit-pct">72%</span></div><div class="sk-track"><div class="sk-bar bb" data-w="72"></div></div></div><div><div class="skit-top"><span class="skit-name">QGIS</span><span class="skit-pct">55%</span></div><div class="sk-track"><div class="sk-bar bb" data-w="55"></div></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CHALLENGE ══════════════════════ -->
+<section id="challenge" class="sec">
+  <div class="wrap">
+    <p class="ey fu">Distinction</p>
+    <h2 class="big fu">Challenge <span class="out">Génie Civil</span></h2>
+    <div class="challenge-inner fu">
+      <div>
+        <div class="ch-badge"><span class="ch-badge-icon">🏆</span><span class="ch-badge-txt">Podium · Challenge GC Inter-IUT</span></div>
+        <div class="ch-title">Sur le <span class="gold">podium</span><br/>du Challenge<br/>Génie Civil</div>
+        <p class="ch-desc" style="margin-top:1rem">
+          Participation au Challenge Génie Civil inter-IUT avec classement sur le podium.
+          Compétition technique alliant conception structurale, calculs réglementaires
+          et présentation devant jury de professionnels du secteur.
+          Une distinction qui valide la maîtrise des fondamentaux de l'ingénierie civile
+          face aux meilleurs étudiants d'autres IUT.
+        </p>
+      </div>
+      <div class="ch-podium">
+        <div class="ch-stat-big">
+          <div class="n">🥇</div>
+          <div class="l">Classement Podium</div>
+        </div>
+        <div class="ch-sub-stats">
+          <div class="ch-sub"><div class="n">IUT</div><div class="l">de Nîmes</div></div>
+          <div class="ch-sub"><div class="n">GC</div><div class="l">Génie Civil</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ALTERNANCE ════════════════════ -->
+<section id="alt" class="sec" style="background:#09080f">
+  <div class="wrap">
+    <p class="ey fu">Expérience professionnelle</p>
+    <h2 class="big fu">Alternance &amp; <span class="out">chantiers</span></h2>
+
+    <div class="alt-g">
+      <div class="alt-co fl">
+        <div class="alt-ico">🏗️</div>
+        <div class="alt-name">BUESA TP</div>
+        <div class="alt-sub">Apprenti Chef de Chantier VRD · Alternance 2025–2026</div>
+        <div class="kpis">
+          <div class="kpi"><div class="kpi-v">1 an</div><div class="kpi-l">Alternance</div></div>
+          <div class="kpi"><div class="kpi-v">3</div><div class="kpi-l">Chantiers majeurs</div></div>
+          <div class="kpi"><div class="kpi-v">OA</div><div class="kpi-l">Ouvrage d'Art</div></div>
+          <div class="kpi"><div class="kpi-v">Total</div><div class="kpi-l">Groupe Total</div></div>
+        </div>
+      </div>
+
+      <div class="chantiers-list fr">
+
+        <div class="chantier-card">
+          <div class="ch-card-header">
+            <div class="ch-card-name">Chantier Bonpas — Ouvrage d'Art</div>
+            <span class="ch-card-badge">Terrassement · OA</span>
+          </div>
+          <div class="ch-card-client">📍 Bonpas (84) — Ouvrage de franchissement</div>
+          <div class="ch-card-desc">Terrassement pour la réalisation d'un ouvrage d'art : décapage, fouilles, talutage et compactage. Piquetages complémentaires — emprises et altimétrie de plate-forme. Contrôle de l'exécution (altimétrie et planimétrie), réception des matériaux, coordination des sous-traitants et application des consignes de sécurité PPS/SPS.</div>
+          <div class="ch-card-tags"><span class="ch-tag">Terrassement</span><span class="ch-tag">Ouvrage d'Art</span><span class="ch-tag">Implantation</span><span class="ch-tag">Altimétrie</span><span class="ch-tag">Talutage</span><span class="ch-tag">PPS / SPS</span></div>
+        </div>
+
+        <div class="chantier-card">
+          <div class="ch-card-header">
+            <div class="ch-card-name">Port d'Istres — VRD &amp; Aménagement</div>
+            <span class="ch-card-badge">VRD · Chef de Chantier</span>
+          </div>
+          <div class="ch-card-client">📍 Port d'Istres (13) — BUESA TP</div>
+          <div class="ch-card-desc">Chantier VRD au port d'Istres : suivi d'exécution (altimétrie, planimétrie), installation de chantier, organisation des équipes, gestion des délais et des aléas. Maîtrise de la dépense — rapports de chantier, bons de livraison, commandes. Application du plan de prévention et des consignes EPI.</div>
+          <div class="ch-card-tags"><span class="ch-tag">VRD</span><span class="ch-tag">Chef de chantier</span><span class="ch-tag">Suivi exécution</span><span class="ch-tag">Gestion équipe</span><span class="ch-tag">Rapport chantier</span><span class="ch-tag">Plan de prévention</span></div>
+        </div>
+
+        <div class="chantier-card">
+          <div class="ch-card-header">
+            <div class="ch-card-name">Rétia L'Estac — Groupe Total Énergies</div>
+            <span class="ch-card-badge">Entretien · Site industriel</span>
+          </div>
+          <div class="ch-card-client">📍 L'Estac — Client : Total Énergies</div>
+          <div class="ch-card-desc">Chantier d'entretien et d'aménagement sur site industriel pour le groupe Total Énergies. Travaux VRD, gros entretien des infrastructures. Suivi des concessionnaires (EDF, GDF, PTT), DICT, interface HSE Total, contrôle réception qualitative et quantitative des matériaux.</div>
+          <div class="ch-card-tags"><span class="ch-tag">Entretien</span><span class="ch-tag">VRD</span><span class="ch-tag">DICT</span><span class="ch-tag">Site industriel</span><span class="ch-tag">HSE</span><span class="ch-tag">Total Énergies</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Missions réelles PDF -->
+    <div style="margin-top:3rem">
+      <p class="ey fu" style="margin-bottom:1.5rem">Missions · Fiche de fonction Chef de Chantier VRD</p>
+      <div class="missions-grid fu">
+        <div class="mbox"><div class="mbox-n">01</div><div class="mbox-t">Implantation &amp; piquetages</div><div class="mbox-d">Piquetages complémentaires : emprises, altimétrie de plate-forme, talus et voies. Contrôle altimétrie &amp; planimétrie en cours d'exécution.</div></div>
+        <div class="mbox"><div class="mbox-n">02</div><div class="mbox-t">Suivi d'exécution</div><div class="mbox-d">Réception qualitative et quantitative des matériaux, contrôle des sous-traitants, suivi concessionnaires (EDF, GDF, PTT) et DICT.</div></div>
+        <div class="mbox"><div class="mbox-n">03</div><div class="mbox-t">Gestion administrative</div><div class="mbox-d">Rapports de chantier (personnel, matériel, dépenses), bons de livraison, commandes selon délégation, maîtrise de la dépense.</div></div>
+        <div class="mbox"><div class="mbox-n">04</div><div class="mbox-t">Animation d'équipe</div><div class="mbox-d">Distribution des tâches et consignes, circulation des informations, accueil sécurité du personnel interne et externe, locatiers.</div></div>
+        <div class="mbox"><div class="mbox-n">05</div><div class="mbox-t">Sécurité &amp; prévention</div><div class="mbox-d">Application PPS/SPS &amp; plan de prévention, port des EPI, demande de formation SST/CACES si besoin, gestion des accidents.</div></div>
+        <div class="mbox"><div class="mbox-n">06</div><div class="mbox-t">Qualité &amp; clôture</div><div class="mbox-d">Système qualité sur chantier, enregistrements, contrôle final et repli de chantier pour livraison de l'ouvrage en bon état.</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ PROJETS ════════════════════════ -->
+<section id="projets" class="sec">
+  <div class="wrap">
+    <p class="ey fu">Réalisations académiques</p>
+    <h2 class="big fu">Mes <span class="out">projets</span></h2>
+
+    <!-- Featured: Anduze -->
+    <div class="proj-featured fu">
+      <div class="pf-left">
+        <div>
+          <div class="pf-badge">⭐ Projet de Fin d'Études — BUT 3</div>
+          <div class="pf-title">Réaménagement<br/>de la ville<br/>d'Anduze</div>
+          <p class="pf-desc">Projet de fin d'études ambitieux : étude complète de réaménagement urbain de la commune d'Anduze (Gard). Requalification de voirie, mise aux normes PMR, réseau d'assainissement pluvial, espaces publics, intégration paysagère et développement durable. Rendu complet : plans, CCTP, estimatif, présentation jury.</p>
+        </div>
+        <div class="pf-tags">
+          <span class="pf-tag">AutoCAD Civil 3D</span>
+          <span class="pf-tag">Hydraulique urbaine</span>
+          <span class="pf-tag">VRD</span>
+          <span class="pf-tag">Accessibilité PMR</span>
+          <span class="pf-tag">CCTP</span>
+          <span class="pf-tag">Estimatif</span>
+          <span class="pf-tag">Anduze (30)</span>
+        </div>
+      </div>
+      <div class="pf-right">
+        <div class="pf-visual">🏙️</div>
+      </div>
+    </div>
+
+    <div class="proj-grid">
+      <div class="pc fu" data-d="1">
+        <div class="pc-ban b1">🏆</div>
+        <div class="pc-body">
+          <div class="pc-type">Compétition · Challenge GC · Podium</div>
+          <div class="pc-title">Challenge Génie Civil Inter-IUT</div>
+          <div class="pc-desc">Conception et calcul d'une structure en compétition face aux équipes des autres IUT. Dimensionnement, optimisation et présentation devant jury professionnel. Classement sur le podium.</div>
+          <div class="pc-tags"><span class="pc-tag">Calcul de structure</span><span class="pc-tag">EC2 / EC3</span><span class="pc-tag">Présentation jury</span></div>
+        </div>
+      </div>
+
+      <div class="pc fu" data-d="2">
+        <div class="pc-ban b2">🌉</div>
+        <div class="pc-body">
+          <div class="pc-type">Ouvrage d'art · Structure · 2ème année</div>
+          <div class="pc-title">Projet de dimensionnement de pont</div>
+          <div class="pc-desc">Pré-dimensionnement d'un ouvrage de franchissement : poutres béton armé EC2, ferraillage, plans de coffrage et d'armatures, vérifications réglementaires.</div>
+          <div class="pc-tags"><span class="pc-tag">Eurocodes EC2</span><span class="pc-tag">Robot Structural</span><span class="pc-tag">Béton armé</span></div>
+        </div>
+      </div>
+
+      <div class="pc fu" data-d="3">
+        <div class="pc-ban b3">💧</div>
+        <div class="pc-body">
+          <div class="pc-type">Hydraulique · Assainissement · 2ème année</div>
+          <div class="pc-title">Réseau d'assainissement urbain</div>
+          <div class="pc-desc">Dimensionnement complet d'un réseau EP/EU : calcul des débits, choix des diamètres, profil en long, implantation et plan de réseau.</div>
+          <div class="pc-tags"><span class="pc-tag">Hydraulique</span><span class="pc-tag">AutoCAD</span><span class="pc-tag">Normes NF</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SOFT SKILLS ═════════════════════ -->
+<section id="soft" class="sec" style="padding-top:0;background:#09080f">
+  <div class="wrap" style="padding:0">
+    <div style="padding:0 3rem 3rem">
+      <p class="ey fu">Savoir-être</p>
+      <h2 class="big fu">Mes <span class="out">qualités</span></h2>
+    </div>
+    <div class="softg">
+      <div class="softc fu" data-d="1"><div class="softn">01</div><div class="softt">Rigueur</div><div class="softd">Précision dans calculs, plans et normes. Exigence forgée chez Freyssinet, Eurovia et BUESA.</div></div>
+      <div class="softc fu" data-d="2"><div class="softn">02</div><div class="softt">Travail en équipe</div><div class="softd">Collaboration avec conducteurs de travaux, géomètres, sous-traitants et équipes HSE Total Énergies.</div></div>
+      <div class="softc fu" data-d="3"><div class="softn">03</div><div class="softt">Adaptabilité</div><div class="softd">3 entreprises différentes en 3 ans (Freyssinet · Eurovia · BUESA) — chaque culture assimilée rapidement.</div></div>
+      <div class="softc fu" data-d="1"><div class="softn">04</div><div class="softt">Communication</div><div class="softd">CR de chantier, réunions MOA, présentations jury (Challenge GC podium). Clair à l'écrit et à l'oral.</div></div>
+      <div class="softc fu" data-d="2"><div class="softn">05</div><div class="softt">Gestion du temps</div><div class="softd">Rythme alternance études / terrain chez BUESA, tout en menant le projet de fin d'études Anduze.</div></div>
+      <div class="softc fu" data-d="3"><div class="softn">06</div><div class="softt">Ambition</div><div class="softd">Podium Challenge GC, stages dans des groupes majeurs du TP, projet Anduze : viser haut et livrer.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ════════════════════════ -->
+<section id="contact">
+  <div class="con-wrap fu">
+    <div class="con-big">
+      <div class="ghost">ON CONSTRUIT</div>
+      <div>ENSEMBLE ?</div>
+    </div>
+    <p class="con-sub">Disponible pour toute opportunité dans les Travaux Publics · Région PACA / Occitanie et ailleurs</p>
+    <div class="con-btns">
+      <a href="mailto:quentin.emorine0510@gmail.com" class="cbtn amber">✉ quentin.emorine0510@gmail.com</a>
+      <a href="tel:+33620472516" class="cbtn ghost">📞 +33 6 20 47 25 16</a>
+      <a href="https://linkedin.com/in/quentin-emorine" class="cbtn ghost" target="_blank">💼 LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div><b>Quentin EMORINE</b> · IUT de Nîmes · BUT GC&CD · Parcours TP · <span class="amber">Promo 2026</span></div>
+  <div style="display:flex;align-items:center;gap:1rem">
+    <span>Fait avec rigueur, passion &amp; ambition</span>
+    <a href="https://iridescent-malabi-efd029.netlify.app" target="_blank" title="Scanner pour accéder au portfolio" style="cursor:none;display:block;line-height:0;opacity:.35;transition:opacity .25s" onmouseenter="this.style.opacity='.9'" onmouseleave="this.style.opacity='.35'">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=52x52&data=https://iridescent-malabi-efd029.netlify.app&color=e8941a&bgcolor=05040a&qzone=1" width="52" height="52" alt="QR code portfolio" style="display:block;border-radius:4px"/>
+    </a>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+/* ── Loader ──────────────────────────────── */
+(()=>{
+  const L=document.getElementById('loader');
+  setTimeout(()=>L.classList.add('out'),1800);
+})();
+
+/* ── Scroll progress ─────────────────────── */
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const max=document.body.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/max*100)+'%';
+},{passive:true});
+
+/* ── Nav scroll + active ─────────────────── */
+const navEl=document.querySelector('nav');
+window.addEventListener('scroll',()=>{
+  navEl.classList.toggle('scrolled',scrollY>60);
+},{passive:true});
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nlinks a');
+const navObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('active'));
+      const a=document.querySelector(`.nlinks a[href="#${e.target.id}"]`);
+      if(a)a.classList.add('active');
+    }
+  });
+},{rootMargin:'-35% 0px -65% 0px'});
+sections.forEach(s=>navObs.observe(s));
+
+/* ── Page glow ───────────────────────────── */
+const glowEl=document.getElementById('glow-cursor');
+document.addEventListener('mousemove',e=>{
+  glowEl.style.setProperty('--mx',e.clientX+'px');
+  glowEl.style.setProperty('--my',e.clientY+'px');
+},{passive:true});
+
+/* ── Cursor ──────────────────────────────── */
+const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+(function lag(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lag)})();
+document.querySelectorAll('a,button,.pc,.skc,.softc,.chantier-card,.atag,.cbtn,.hbtn,.ch-stat-big,.stat-cell,.mbox').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
+});
+document.addEventListener('mousedown',()=>document.body.classList.add('cc'));
+document.addEventListener('mouseup',()=>document.body.classList.remove('cc'));
+
+/* ── Hero reveal ─────────────────────────── */
+setTimeout(()=>{
+  document.querySelectorAll('.htitle .w').forEach((w,i)=>setTimeout(()=>w.classList.add('up'),2000+i*180));
+  setTimeout(()=>{
+    document.querySelector('.hdesc')?.classList.add('up');
+    document.querySelector('.hcta')?.classList.add('up');
+  },2450);
+},0);
+
+/* ── Scroll reveal ───────────────────────── */
+const obs=new IntersectionObserver(e=>e.forEach(x=>{
+  if(x.isIntersecting)setTimeout(()=>x.target.classList.add('in'),(+x.target.dataset.d||0)*100);
+}),{threshold:.1});
+document.querySelectorAll('.fu,.fl,.fr').forEach(el=>obs.observe(el));
+
+/* ── Skill bars ──────────────────────────── */
+const bobs=new IntersectionObserver(e=>e.forEach(x=>{
+  if(x.isIntersecting){x.target.querySelectorAll('.sk-bar').forEach(b=>b.style.width=b.dataset.w+'%');bobs.unobserve(x.target)}
+}),{threshold:.25});
+document.querySelectorAll('.skc').forEach(c=>bobs.observe(c));
+
+/* ── 3D tilt on project cards ────────────── */
+document.querySelectorAll('.pc,.proj-featured').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(800px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateZ(6px)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transition='transform .6s cubic-bezier(.16,1,.3,1)';
+    card.style.transform='none';
+    setTimeout(()=>card.style.transition='',600);
+  });
+  card.addEventListener('mouseenter',()=>card.style.transition='none');
+});
+
+/* ── Glow on skill cells ─────────────────── */
+document.querySelectorAll('.skc').forEach(c=>c.addEventListener('mousemove',e=>{
+  const r=c.getBoundingClientRect();
+  c.style.setProperty('--gx',((e.clientX-r.left)/r.width*100)+'%');
+  c.style.setProperty('--gy',((e.clientY-r.top)/r.height*100)+'%');
+}));
+
+/* ── Magnetic CTA ────────────────────────── */
+document.querySelectorAll('.cbtn,.hbtn').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.28}px,${(e.clientY-r.top-r.height/2)*.28}px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{
+    btn.style.transition='transform .5s cubic-bezier(.16,1,.3,1)';
+    btn.style.transform='';
+    setTimeout(()=>btn.style.transition='',500);
+  });
+  btn.addEventListener('mouseenter',()=>btn.style.transition='none');
+});
+
+/* ── Parallax hero ───────────────────────── */
+let tk=false;
+window.addEventListener('scroll',()=>{
+  if(!tk){requestAnimationFrame(()=>{
+    const hl=document.querySelector('.hl');
+    if(hl)hl.style.transform=`translateY(${window.scrollY*.1}px)`;
+    tk=false;
+  });tk=true;}
+});
+
+/* ── Text scramble on outline hover ─────── */
+const CH='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#&';
+function scramble(el){
+  if(el._scrambling)return;
+  el._scrambling=true;
+  const o=el.dataset.orig||(el.dataset.orig=el.textContent);
+  let i=0;
+  const iv=setInterval(()=>{
+    el.textContent=o.split('').map((c,j)=>{if(c===' ')return ' ';if(j<i)return o[j];return CH[Math.floor(Math.random()*CH.length)]}).join('');
+    if(i>=o.length){clearInterval(iv);el.textContent=o;el._scrambling=false;}
+    i+=.9;
+  },22);
+}
+document.querySelectorAll('.out').forEach(el=>{
+  el.style.cursor='none';
+  el.addEventListener('mouseenter',()=>scramble(el));
+});
+
+/* ── Theme toggle ────────────────────────── */
+const themeBtn=document.getElementById('theme-btn');
+themeBtn.addEventListener('click',()=>{
+  const light=document.body.classList.toggle('light');
+  themeBtn.textContent=light?'🌙 Sombre':'☀️ Clair';
+  localStorage.setItem('theme',light?'light':'dark');
+});
+if(localStorage.getItem('theme')==='light'){document.body.classList.add('light');themeBtn.textContent='🌙 Sombre';}
+
+/* ── Cursor label on project cards ──────── */
+const lbl=document.getElementById('cursor-lbl');
+document.querySelectorAll('.pc,.proj-featured').forEach(card=>{
+  card.addEventListener('mouseenter',()=>{lbl.textContent='VOIR →';lbl.style.opacity='1'});
+  card.addEventListener('mouseleave',()=>lbl.style.opacity='0');
+});
+document.addEventListener('mousemove',e=>{lbl.style.left=e.clientX+'px';lbl.style.top=e.clientY+'px'},{passive:true});
+
+/* ── Magnetic CV button ───────────────────── */
+const cvBtn=document.getElementById('cv-btn');
+cvBtn.addEventListener('mousemove',e=>{
+  const r=cvBtn.getBoundingClientRect();
+  cvBtn.style.transform=`translateY(${(e.clientY-r.top-r.height/2)*.35}px) translateX(${(e.clientX-r.left-r.width/2)*.35}px)`;
+});
+cvBtn.addEventListener('mouseleave',()=>{
+  cvBtn.style.transition='transform .5s var(--ease)';
+  cvBtn.style.transform='translateY(0)';
+  setTimeout(()=>cvBtn.style.transition='',500);
+});
+cvBtn.addEventListener('mouseenter',()=>cvBtn.style.transition='none');
+[cvBtn].forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
+});
+
+/* ── Easter egg — taper "BUESA" ──────────── */
+let easterBuf='';
+const easterEl=document.getElementById('easter');
+document.addEventListener('keydown',e=>{
+  easterBuf=(easterBuf+e.key.toUpperCase()).slice(-5);
+  if(easterBuf==='BUESA'){easterEl.classList.add('show')}
+  if(e.key==='Escape'){easterEl.classList.remove('show');easterBuf='';}
+});
+easterEl.addEventListener('click',()=>{easterEl.classList.remove('show');easterBuf='';});
+
+/* ── Animated number counter ─────────────── */
+const ease=t=>1-Math.pow(1-t,3);
+function count(el,target,dur=1400){
+  let s=null;
+  (function step(ts){
+    if(!s)s=ts;
+    const p=Math.min((ts-s)/dur,1);
+    el.textContent=Math.round(ease(p)*target);
+    if(p<1)requestAnimationFrame(step);else el.textContent=target;
+  })(performance.now());
+}
+const cobs=new IntersectionObserver(e=>e.forEach(x=>{
+  if(x.isIntersecting){const n=parseInt(x.target.textContent);if(!isNaN(n)&&n>1)count(x.target,n);cobs.unobserve(x.target);}
+}),{threshold:.6});
+document.querySelectorAll('.stat-n,.kpi-v,.acard-stat-n').forEach(el=>{if(/^\d+$/.test(el.textContent.trim()))cobs.observe(el)});
+</script>
+</body>
+</html>

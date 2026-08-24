@@ -377,6 +377,32 @@ h2.big .out{-webkit-text-stroke:1.5px var(--amber);color:transparent}
 .pc-tag{font-size:.6rem;font-weight:700;letter-spacing:.06em;padding:.18rem .5rem;border-radius:2px;background:rgba(26,60,255,.08);border:1px solid rgba(26,60,255,.2);color:#7fa2ff}
 
 /* ═══════════════════════════════════════════
+   PORTFOLIO BUT — PRÉAMBULE / COMPÉTENCES / CONCLUSION
+═══════════════════════════════════════════ */
+.pf-block{background:#09080f;border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:2.6rem;margin-bottom:2.5rem}
+.pf-block h3{font-size:1.3rem;font-weight:900;letter-spacing:-.02em;margin-bottom:1.1rem;color:var(--amber)}
+.pf-block p{font-size:.9rem;color:rgba(255,255,255,.48);line-height:1.9;margin-bottom:.9rem}
+.pf-block ul{margin:0 0 .9rem 1.2rem}
+.pf-block li{font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:.3rem}
+.comp-card{background:#09080f;border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:2.2rem;margin-bottom:1.5rem;position:relative;overflow:hidden;transition:border-color .3s}
+.comp-card:hover{border-color:rgba(232,148,26,.2)}
+.comp-num{position:absolute;top:1.2rem;right:1.6rem;font-size:3.5rem;font-weight:900;color:rgba(255,255,255,.035);letter-spacing:-.05em;line-height:1;user-select:none}
+.comp-title{font-size:1.15rem;font-weight:900;letter-spacing:-.015em;margin-bottom:.3rem;position:relative;z-index:1}
+.comp-sub{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:1.4rem}
+.comp-q{margin-bottom:1.1rem}
+.comp-q-label{font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:.35rem}
+.comp-q-a{font-size:.86rem;color:rgba(255,255,255,.5);line-height:1.8}
+.pf-conclu{background:linear-gradient(135deg,rgba(232,148,26,.06),transparent);border:1px solid rgba(232,148,26,.18);border-radius:8px;padding:2.6rem}
+.pf-conclu h3{color:var(--amber);font-size:1.3rem;font-weight:900;margin-bottom:1.1rem}
+.pf-conclu p{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:.9rem}
+body.light .pf-block,body.light .comp-card{background:#f7f4ef;border-color:rgba(0,0,0,.07)}
+body.light .pf-block p,body.light .comp-q-a{color:rgba(18,16,30,.55)}
+body.light .pf-block li{color:rgba(18,16,30,.5)}
+body.light .comp-q-label{color:rgba(18,16,30,.35)}
+body.light .pf-conclu{background:linear-gradient(135deg,rgba(232,148,26,.08),transparent)}
+body.light .pf-conclu p{color:rgba(18,16,30,.55)}
+
+/* ═══════════════════════════════════════════
    SOFT SKILLS
 ═══════════════════════════════════════════ */
 .softg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.04)}
@@ -573,6 +599,7 @@ body.light #cv-btn{box-shadow:0 8px 30px rgba(232,148,26,.5)}
     <li><a href="#challenge">🏆 Challenge</a></li>
     <li><a href="#alt">Alternance</a></li>
     <li><a href="#projets">Projets</a></li>
+    <li><a href="#portfolio-but">Portfolio</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button id="theme-btn" title="Changer le thème">☀️ Clair</button>
@@ -936,6 +963,88 @@ body.light #cv-btn{box-shadow:0 8px 30px rgba(232,148,26,.5)}
       <div class="softc fu" data-d="2"><div class="softn">05</div><div class="softt">Gestion du temps</div><div class="softd">Rythme alternance études / terrain chez BUESA, tout en menant le projet de fin d'études Anduze.</div></div>
       <div class="softc fu" data-d="3"><div class="softn">06</div><div class="softt">Ambition</div><div class="softd">Podium Challenge GC, stages dans des groupes majeurs du TP, projet Anduze : viser haut et livrer.</div></div>
     </div>
+  </div>
+</section>
+
+<!-- ══════════ PORTFOLIO BUT — PRÉAMBULE / COMPÉTENCES / CONCLUSION ══════ -->
+<section id="portfolio-but" class="sec">
+  <div class="wrap">
+    <p class="ey fu">BUT GC&amp;CD · Semestre 6 · IUT de Nîmes</p>
+    <h2 class="big fu">Portfolio de <span class="out">fin de formation</span></h2>
+
+    <!-- Préambule -->
+    <div class="pf-block fu">
+      <h3>Préambule</h3>
+      <p>Ce portfolio vient clôturer trois années de formation en BUT Génie Civil &amp; Construction Durable, parcours Travaux Publics, à l'IUT de Nîmes. Il contextualise mon année d'apprentissage chez <strong style="color:#fff">BUESA TP</strong>, entreprise de travaux publics où j'ai occupé le poste d'apprenti chef de chantier VRD, intervenant sur des chantiers de terrassement, d'ouvrage d'art et de VRD (Bonpas, Port d'Istres, site Total Énergies à L'Estac).</p>
+      <p>Mon évolution depuis mon entrée à l'IUT se mesure à travers la montée en autonomie sur chantier : d'une posture d'observation en 1ère année (stage Freyssinet) à une véritable prise de responsabilités en alternance (suivi d'exécution, gestion d'équipe, relation clients et concessionnaires). Les traces de cette évolution sont mes rapports de chantier, mes fiches de fonction, les plans d'implantation réalisés et les retours de mes tuteurs académiques et maître d'apprentissage.</p>
+      <p>Les apprentissages critiques du BUT (dimensionnement d'ouvrages, gestion de projet, connaissance réglementaire et environnementale) trouvent tous un écho concret dans mes missions en entreprise : chaque compétence développée en cours a été mobilisée, testée puis affinée sur le terrain. Les compétences transversales — communication, travail en équipe, gestion du temps, rigueur — ont quant à elles été éprouvées au contact quotidien des équipes de chantier, des sous-traitants et des clients.</p>
+    </div>
+
+    <!-- 5 compétences professionnelles -->
+    <p class="ey fu" style="margin-bottom:1.8rem">5 compétences professionnelles développées en entreprise</p>
+
+    <div class="comp-card fu" data-d="1">
+      <div class="comp-num">01</div>
+      <div class="comp-title">Implantation &amp; topographie de chantier</div>
+      <div class="comp-sub">Chantiers Bonpas (OA) · Port d'Istres (VRD)</div>
+      <div class="comp-q"><div class="comp-q-label">Moyens mis en œuvre</div><div class="comp-q-a">Piquetages complémentaires (emprises, altimétrie de plate-forme, talus), relevés topographiques sur site, contrôle continu de l'altimétrie et de la planimétrie en cours d'exécution.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Lien avec la formation &amp; les AC du BUT</div><div class="comp-q-a">Mobilise directement les modules de topographie, de nivellement/implantation et de lecture de plans d'exécution suivis à l'IUT.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Missions concernées</div><div class="comp-q-a">Implantation de l'ouvrage d'art de Bonpas et de la plate-forme VRD du Port d'Istres.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Utilité pour l'intégration après le BUT</div><div class="comp-q-a">Compétence de base indispensable à tout poste de chef de chantier ou conducteur de travaux : c'est elle qui conditionne la conformité de l'ouvrage dès son démarrage.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Synthèse</div><div class="comp-q-a">Compétence solide, gagnée en autonomie au fil de l'année : je réalise désormais des implantations sans supervision directe.</div></div>
+    </div>
+
+    <div class="comp-card fu" data-d="2">
+      <div class="comp-num">02</div>
+      <div class="comp-title">Suivi d'exécution &amp; contrôle qualité</div>
+      <div class="comp-sub">Chantiers Bonpas · Port d'Istres · Rétia L'Estac (Total Énergies)</div>
+      <div class="comp-q"><div class="comp-q-label">Moyens mis en œuvre</div><div class="comp-q-a">Réception qualitative et quantitative des matériaux, contrôle de l'exécution des sous-traitants, suivi des concessionnaires (EDF, GDF, PTT) et gestion des DICT.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Lien avec la formation &amp; les AC du BUT</div><div class="comp-q-a">S'appuie sur les enseignements de gestion de projet TP, de contrôle qualité et de connaissance des matériaux dispensés en 2ème et 3ème année.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Missions concernées</div><div class="comp-q-a">Suivi du chantier d'entretien pour Total Énergies (interface HSE) et du chantier VRD du Port d'Istres.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Utilité pour l'intégration après le BUT</div><div class="comp-q-a">Essentielle pour garantir la conformité des ouvrages livrés et la relation de confiance avec le client — un point clé pour évoluer vers un poste de conducteur de travaux.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Synthèse</div><div class="comp-q-a">J'ai gagné en méthode et en réactivité, notamment sur la gestion des aléas de chantier et l'interface avec les concessionnaires.</div></div>
+    </div>
+
+    <div class="comp-card fu" data-d="3">
+      <div class="comp-num">03</div>
+      <div class="comp-title">Gestion administrative &amp; économique de chantier</div>
+      <div class="comp-sub">Ensemble des chantiers BUESA TP</div>
+      <div class="comp-q"><div class="comp-q-label">Moyens mis en œuvre</div><div class="comp-q-a">Rédaction de rapports de chantier (personnel, matériel, dépenses), gestion des bons de livraison et commandes selon délégation, maîtrise de la dépense.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Lien avec la formation &amp; les AC du BUT</div><div class="comp-q-a">Rejoint les modules de management de projet TP et d'économie de la construction abordés en 3ème année.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Missions concernées</div><div class="comp-q-a">Fonction de chef de chantier VRD délégué sur le suivi financier et administratif du Port d'Istres.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Utilité pour l'intégration après le BUT</div><div class="comp-q-a">Compétence transversale indispensable pour tenir un poste d'encadrement — elle conditionne la rentabilité d'un chantier.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Synthèse</div><div class="comp-q-a">Compétence en construction : je maîtrise désormais les outils de suivi de chantier mais dois encore gagner en anticipation budgétaire.</div></div>
+    </div>
+
+    <div class="comp-card fu" data-d="1">
+      <div class="comp-num">04</div>
+      <div class="comp-title">Management &amp; coordination d'équipe</div>
+      <div class="comp-sub">Chantiers Bonpas · Port d'Istres</div>
+      <div class="comp-q"><div class="comp-q-label">Moyens mis en œuvre</div><div class="comp-q-a">Distribution des tâches et consignes, circulation de l'information, accueil sécurité du personnel interne, externe et des locatiers, coordination des sous-traitants.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Lien avec la formation &amp; les AC du BUT</div><div class="comp-q-a">Fait écho aux compétences transversales de communication et travail en équipe développées via les projets tuteurés à l'IUT.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Missions concernées</div><div class="comp-q-a">Animation quotidienne des équipes sur le chantier VRD du Port d'Istres.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Utilité pour l'intégration après le BUT</div><div class="comp-q-a">Compétence clé pour évoluer vers un poste de chef de chantier confirmé ou de conducteur de travaux.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Synthèse</div><div class="comp-q-a">La plus formatrice de l'année : encadrer des équipes plus expérimentées que moi m'a demandé rigueur, écoute et affirmation progressive.</div></div>
+    </div>
+
+    <div class="comp-card fu" data-d="2">
+      <div class="comp-num">05</div>
+      <div class="comp-title">Sécurité, prévention &amp; qualité</div>
+      <div class="comp-sub">Chantiers Bonpas · Rétia L'Estac (Total Énergies)</div>
+      <div class="comp-q"><div class="comp-q-label">Moyens mis en œuvre</div><div class="comp-q-a">Application des PPS/SPS et du plan de prévention, port des EPI, demande de formations SST/CACES si besoin, gestion des accidents, contrôle final et repli de chantier.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Lien avec la formation &amp; les AC du BUT</div><div class="comp-q-a">Prolonge directement les enseignements de droit de la construction et de prévention des risques du BUT.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Missions concernées</div><div class="comp-q-a">Interface HSE avec Total Énergies sur le site de L'Estac, gestion sécurité du chantier de Bonpas.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Utilité pour l'intégration après le BUT</div><div class="comp-q-a">Non négociable dans le secteur des TP : la sécurité conditionne l'aptitude à encadrer un chantier.</div></div>
+      <div class="comp-q"><div class="comp-q-label">Synthèse</div><div class="comp-q-a">Réflexe désormais acquis, renforcé par l'exigence particulière du site industriel Total Énergies.</div></div>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="pf-conclu fu">
+      <h3>Conclusion — Bilan de montée en compétences</h3>
+      <p>Cette année d'apprentissage chez BUESA TP marque l'aboutissement de trois ans de formation à l'IUT de Nîmes. Elle m'a permis de transformer des connaissances techniques (topographie, hydraulique, béton armé, VRD) en compétences opérationnelles directement mobilisables sur chantier, et de développer une véritable posture d'encadrement — de l'implantation à la clôture d'un chantier.</p>
+      <p>Mon investissement dans la formation du BUT — stages chez Freyssinet et Eurovia, podium au Challenge Génie Civil inter-IUT, projet de fin d'études sur Anduze — s'est concrétisé cette année par une autonomie croissante en entreprise. Je souhaite désormais poursuivre mon évolution professionnelle vers un poste de conducteur de travaux dans les Travaux Publics, en capitalisant sur cette double culture technique et terrain acquise durant mon parcours à l'IUT de Nîmes.</p>
+    </div>
+
   </div>
 </section>
 

@@ -323,14 +323,6 @@ h2.big .out{-webkit-text-stroke:1.5px var(--amber);color:transparent}
 .ch-card-badge{font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:2px;background:rgba(232,148,26,.1);border:1px solid rgba(232,148,26,.2);color:var(--amber);white-space:nowrap;flex-shrink:0}
 .ch-card-client{font-size:.72rem;color:rgba(255,255,255,.3);margin-bottom:.5rem;font-weight:600}
 .ch-card-desc{font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.7}
-.missions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:transparent}
-.mbox{background:var(--ink);padding:1.5rem;transition:background .25s;border:1px solid rgba(255,255,255,.06);border-radius:6px}
-.mbox:hover{background:rgba(232,148,26,.05)}
-.mbox-n{font-size:.62rem;font-weight:900;letter-spacing:.12em;color:var(--amber);margin-bottom:.8rem;opacity:.7}
-.mbox-t{font-size:.88rem;font-weight:800;margin-bottom:.6rem;letter-spacing:-.01em}
-.mbox-d{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.7}
-@media(max-width:900px){.missions-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.missions-grid{grid-template-columns:1fr}}
 .ch-card-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
 .ch-tag{font-size:.62rem;font-weight:700;letter-spacing:.06em;padding:.18rem .5rem;border-radius:2px;background:rgba(107,147,255,.08);border:1px solid rgba(107,147,255,.18);color:#7fa2ff}
 
@@ -483,7 +475,7 @@ body.light .skc,body.light .softc{background:#f7f4ef}
 body.light .skc:hover,body.light .softc:hover{background:#f0ece4}
 body.light .stats-strip{background:#e0dbd0}
 body.light .stat-cell:hover{background:rgba(232,148,26,.06)}
-body.light .acard,body.light .alt-co,body.light .chantier-card,body.light .pc,body.light .proj-featured,body.light .mbox,body.light .kpi,body.light .ch-sub{background:#fff;border-color:rgba(0,0,0,.07)}
+body.light .acard,body.light .alt-co,body.light .chantier-card,body.light .pc,body.light .proj-featured,body.light .kpi,body.light .ch-sub{background:#fff;border-color:rgba(0,0,0,.07)}
 body.light .ticker{background:#12101e}
 body.light #contact{background:#12101e;color:#fff}
 body.light footer{border-top-color:rgba(0,0,0,.1);color:rgba(18,16,30,.4)}
@@ -931,18 +923,6 @@ body.light #cv-btn{box-shadow:0 8px 30px rgba(232,148,26,.5)}
       </div>
     </div>
 
-    <!-- Missions réelles PDF -->
-    <div style="margin-top:3rem">
-      <p class="ey fu" style="margin-bottom:1.5rem">Missions · Fiche de fonction Chef de Chantier Terrassement</p>
-      <div class="missions-grid fu">
-        <div class="mbox"><div class="mbox-n">01</div><div class="mbox-t">Implantation &amp; piquetages</div><div class="mbox-d">Piquetages complémentaires : emprises, altimétrie de plate-forme, talus et voies. Contrôle altimétrie &amp; planimétrie en cours d'exécution.</div></div>
-        <div class="mbox"><div class="mbox-n">02</div><div class="mbox-t">Suivi d'exécution</div><div class="mbox-d">Réception des matériaux sur chantier, vérification que tout se déroule correctement avec le chef de chantier.</div></div>
-        <div class="mbox"><div class="mbox-n">03</div><div class="mbox-t">Gestion administrative</div><div class="mbox-d">Rapports de chantier (personnel, matériel, dépenses), bons de livraison, commandes selon délégation.</div></div>
-        <div class="mbox"><div class="mbox-n">04</div><div class="mbox-t">Animation d'équipe</div><div class="mbox-d">Distribution des tâches et consignes, circulation des informations, accueil sécurité du personnel interne et externe, locatiers.</div></div>
-        <div class="mbox"><div class="mbox-n">05</div><div class="mbox-t">Sécurité &amp; prévention</div><div class="mbox-d">Application PPSPS &amp; plan de prévention, port des EPI, demande de formation SST/CACES si besoin, gestion des accidents.</div></div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1120,7 +1100,7 @@ const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
 (function lag(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lag)})();
-document.querySelectorAll('a,button,.pc,.skc,.softc,.chantier-card,.atag,.cbtn,.hbtn,.ch-stat-big,.stat-cell,.mbox').forEach(el=>{
+document.querySelectorAll('a,button,.pc,.skc,.softc,.chantier-card,.atag,.cbtn,.hbtn,.ch-stat-big,.stat-cell').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
 });
